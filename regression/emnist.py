@@ -76,7 +76,7 @@ def main():
         assert args.model == 'tnpa'
         config['pretrain'] = args.pretrain
 
-    if args.model in ["np", "anp", "cnp", "canp", "bnp", "banp", "tnpd", "tnpa", "tnpnd"]:
+    if args.model in ["np", "anp", "cnp", "canp", "bnp", "banp", "tnpd", "tnpa", "tnpnd", "attnNP"]:
         model = model_cls(**config)
     model.cuda()
 

@@ -71,7 +71,7 @@ def main():
     with open(f'configs/gp/{args.model}.yaml', 'r') as f:
         config = yaml.safe_load(f)
 
-    if args.model in ["np", "anp", "cnp", "canp", "bnp", "banp", "tnpd", "tnpa", "tnpnd"]:
+    if args.model in ["np", "anp", "cnp", "canp", "bnp", "banp", "tnpd", "tnpa", "tnpnd", "attnNP"]:
         model = model_cls(**config)
     model.cuda()
 
