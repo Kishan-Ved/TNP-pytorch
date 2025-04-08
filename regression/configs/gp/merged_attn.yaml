@@ -1,0 +1,6 @@
+x_dim: 1
+y_dim: 1
+embed_dim: 128
+ff_dim: 512
+num_layers: 3
+norm_type: 'layernorm'
