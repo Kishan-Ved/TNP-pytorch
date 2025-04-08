@@ -1,0 +1,8 @@
+Training:
+python gp.py --model merged_attn --expid best-merged-self-attention-test --mode plot --train_batch_size 16 --max_num_points 50     --lr 5e-3 --num_steps 15000     --print_freq 200 --eval_freq 1000 --save_freq 1000
+
+Change mode to eval or eval_all_metrics or plot
+
+Plot:
+python gp.py --model merged_attn --expid best-merged-self-attention-test --mode plot --train_batch_size 16 --max_num_points 50     --lr 5e-3 --num_steps 15000     --print_freq 200 --eval_freq 1000 --save_freq 1000
+

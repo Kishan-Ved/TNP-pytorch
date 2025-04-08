@@ -380,15 +380,20 @@ def plot(args, model):
     Nt = batch.xt.size(1)
 
     model.eval()
+    print(args.model)
     with torch.no_grad():
         if args.model in ["np", "anp", "bnp", "banp"]:
             outs = model(batch, num_smp, reduce_ll=False)
+        # elif args.model in ["merged_attn"]:
+        #     outs = model(batch)
         else:
             outs = model(batch, reduce_ll=False)
         tar_loss = outs.tar_ll  # [Ns,B,Nt] ([B,Nt] for CNP)
-        if args.model in ["cnp", "canp", "tnpd", "tnpa", "tnpnd"]:
+        print(tar_loss)
+        print(tar_loss.shape)
+        if args.model in ["cnp", "canp", "tnpd", "tnpa", "tnpnd", "merged_attn"]:
             tar_loss = tar_loss.unsqueeze(0)  # [1,B,Nt]
-
+        # print(tar_loss.shape)
         xt = xp[None, :, None].repeat(args.plot_batch_size, 1, 1)
         if args.model in ["np", "anp", "bnp", "banp", "tnpa", "tnpnd"]:
             pred = model.predict(batch.xc, batch.yc, xt, num_samples=num_smp)
